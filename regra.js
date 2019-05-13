@@ -29,7 +29,7 @@ function calcular() {
     }else{
         document.getElementById('msgDataInicial').innerHTML = 'Data Inicial: '+ semana[dataInicio.getDay()] + ', '+ (dataInicio.getDate()+1) + ' de ' + mes[dataInicio.getMonth()] + ' de '+ dataInicio.getFullYear();
         document.getElementById('msgDataFinal').innerHTML = 'Data Final: '+ semana[dataFim.getDay()] + ', '+ (dataFim.getDate()+1) + ' de ' + mes[dataFim.getMonth()] + ' de '+ dataFim.getFullYear();
-        document.getElementById('msg').innerHTML =  diffDias+' dias de diferênça!';
+        document.getElementById('msg').innerHTML =  diffDias+' dias de diferença!';
     }
 
     console.log(semana[dataInicio.getDay()]); //Retona o dia da semana
