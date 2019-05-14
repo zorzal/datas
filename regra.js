@@ -4,7 +4,7 @@ function calcular() {
     document.getElementById('dataHelp').classList.add('invisible');
     document.getElementById('datafim').classList.remove('is-invalid'); 
 
-    semana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"];
+    semana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
     mes = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
     console.log(document.getElementById("datainicio").value);
@@ -20,15 +20,15 @@ function calcular() {
 
     //dataInicio = dataInicio.toLocaleDateString('pt-BR');
 
-    console.log(dataInicio);
+    //console.log(dataInicio.getTimeZoneOffset());
 
     //VERIFICA SE A DATA FINAL É MAIOR QUE DATA INICIAL
     if (diffMilissegundos < 0) {
         document.getElementById('dataHelp').classList.remove('invisible');
         document.getElementById('datafim').classList.add('is-invalid');    
     }else{
-        document.getElementById('msgDataInicial').innerHTML = 'Data Inicial: '+ semana[dataInicio.getDay()] + ', '+ (dataInicio.getDate()+1) + ' de ' + mes[dataInicio.getMonth()] + ' de '+ dataInicio.getFullYear();
-        document.getElementById('msgDataFinal').innerHTML = 'Data Final: '+ semana[dataFim.getDay()] + ', '+ (dataFim.getDate()+1) + ' de ' + mes[dataFim.getMonth()] + ' de '+ dataFim.getFullYear();
+        document.getElementById('msgDataInicial').innerHTML = 'Data Inicial: '+ semana[dataInicio.getUTCDay()] + ', '+ dataInicio.getUTCDate() + ' de ' + mes[dataInicio.getUTCMonth()] + ' de '+ dataInicio.getUTCFullYear();
+        document.getElementById('msgDataFinal').innerHTML = 'Data Final: '+ semana[dataFim.getUTCDay()] + ', '+ dataFim.getUTCDate() + ' de ' + mes[dataFim.getUTCMonth()] + ' de '+ dataFim.getUTCFullYear();
         document.getElementById('msg').innerHTML =  diffDias+' dias de diferença!';
     }
 
